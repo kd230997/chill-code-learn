@@ -1,0 +1,520 @@
+// ==============================================
+// Chill Code Learn - Global Styles
+// Aero-Minimalism Design System
+// ==============================================
+// 🎨 SINGLE SOURCE OF TRUTH FOR ALL DESIGN TOKENS
+// Change colors here - they apply everywhere!
+// ==============================================
+
+@use "@/shared/styles/_variables.scss" as *;
+@use "@/shared/styles/_fonts.scss";
+
+// ==============================================
+// Light Theme (Default)
+// ==============================================
+:root,
+.light {
+  // ============================================
+  // 🎨 PRIMARY COLORS - Change your brand here!
+  // ============================================
+  --primary: #5BB3D4;
+  --primary-light: #89CFEB;
+  --primary-dark: #3A9BC5;
+
+  // Secondary & Accent
+  --secondary: #F5A867;
+  --secondary-light: #FFDAB3;
+  --accent: #A8E6CF;
+  --accent-warm: #FFB6B9;
+
+  // ============================================
+  // 🖼️ BACKGROUNDS
+  // ============================================
+  --background: #E8F4FC;
+  --background-gradient: linear-gradient(180deg, #E8F4FC 0%, #D4EBF8 50%, #C5E4F6 100%);
+  --foreground: #2C3E50;
+  --foreground-muted: #5A7085;
+
+  // ============================================
+  // 🪟 GLASS EFFECTS
+  // ============================================
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-bg-solid: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.5);
+
+  // ============================================
+  // 🌫️ SHADOWS & GLOWS
+  // ============================================
+  --shadow-sm: 0 4px 12px rgba(90, 130, 160, 0.08);
+  --shadow-md: 0 8px 30px rgba(90, 130, 160, 0.12);
+  --shadow-lg: 0 15px 50px rgba(90, 130, 160, 0.15);
+  --shadow-glow: 0 0 40px rgba(91, 179, 212, 0.2);
+  --primary-glow: 0 0 20px rgba(91, 179, 212, 0.3);
+  --primary-ring: 0 0 0 4px rgba(91, 179, 212, 0.1);
+
+  // ============================================
+  // 📦 CARDS & SURFACES
+  // ============================================
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-border: rgba(255, 255, 255, 0.5);
+  --input-bg: #FFFFFF;
+  --input-border: #E4EBF0;
+
+  // ============================================
+  // ✏️ TEXT COLORS
+  // ============================================
+  --text-primary: #2C3E50;
+  --text-secondary: #5A7085;
+  --text-muted: #8FA3B3;
+
+  // ============================================
+  // 🎚️ UI ELEMENTS
+  // ============================================
+  --toggle-bg: #E4EBF0;
+  --toggle-border: #C8D4DE;
+  --toggle-slider: #FFFFFF;
+
+  // Scrollbar
+  --scrollbar-track: #F0F5F9;
+  --scrollbar-thumb: #C8D4DE;
+  --scrollbar-thumb-hover: #8FA3B3;
+
+  // Selection
+  --selection-bg: rgba(91, 179, 212, 0.2);
+  --selection-text: #2C3E50;
+
+  // ============================================
+  // 📐 BORDER RADIUS
+  // ============================================
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-pill: 50px;
+
+  // ============================================
+  // 🚨 STATUS COLORS
+  // ============================================
+  --error-text: #DC2626;
+  --error-bg: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%);
+  --error-border: #FECACA;
+
+  --success-text: #059669;
+  --success-bg: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+  --success-border: #A7F3D0;
+
+  color-scheme: light;
+}
+
+// ==============================================
+// Dark Theme
+// ==============================================
+.dark {
+  // Primary Colors - Lighter for dark mode
+  --primary: #7DD3FC;
+  --primary-light: #BAE6FD;
+  --primary-dark: #38BDF8;
+
+  // Secondary & Accent
+  --secondary: #FBBF24;
+  --secondary-light: #FDE68A;
+  --accent: #6EE7B7;
+  --accent-warm: #FDA4AF;
+
+  // Backgrounds
+  --background: #0F172A;
+  --background-gradient: linear-gradient(180deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
+  --foreground: #E2E8F0;
+  --foreground-muted: #94A3B8;
+
+  // Glass effects - darker for dark theme
+  --glass-bg: rgba(30, 41, 59, 0.7);
+  --glass-bg-solid: rgba(30, 41, 59, 0.9);
+  --glass-border: rgba(71, 85, 105, 0.5);
+
+  // Shadows - more pronounced for dark theme
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 15px 50px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 40px rgba(125, 211, 252, 0.15);
+  --primary-glow: 0 0 20px rgba(125, 211, 252, 0.25);
+  --primary-ring: 0 0 0 4px rgba(125, 211, 252, 0.15);
+
+  // Cards and surfaces
+  --card-bg: rgba(30, 41, 59, 0.9);
+  --card-border: rgba(71, 85, 105, 0.5);
+  --input-bg: #1E293B;
+  --input-border: #334155;
+
+  // Text colors
+  --text-primary: #F1F5F9;
+  --text-secondary: #CBD5E1;
+  --text-muted: #64748B;
+
+  // Theme toggle
+  --toggle-bg: #334155;
+  --toggle-border: #475569;
+  --toggle-slider: #7DD3FC;
+
+  // Scrollbar
+  --scrollbar-track: #1E293B;
+  --scrollbar-thumb: #475569;
+  --scrollbar-thumb-hover: #64748B;
+
+  // Selection
+  --selection-bg: rgba(125, 211, 252, 0.25);
+  --selection-text: #F1F5F9;
+
+  // Status colors - adjusted for dark mode
+  --error-text: #FCA5A5;
+  --error-bg: linear-gradient(135deg, rgba(220, 38, 38, 0.15) 0%, rgba(220, 38, 38, 0.1) 100%);
+  --error-border: rgba(220, 38, 38, 0.3);
+
+  --success-text: #6EE7B7;
+  --success-bg: linear-gradient(135deg, rgba(5, 150, 105, 0.15) 0%, rgba(5, 150, 105, 0.1) 100%);
+  --success-border: rgba(5, 150, 105, 0.3);
+
+  color-scheme: dark;
+}
+
+// ==============================================
+// Base Styles
+// ==============================================
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--background-gradient);
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: $font-family-base;
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+// Links
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--primary-dark);
+  }
+}
+
+// ==============================================
+// Utility Classes
+// ==============================================
+
+// Layout
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+// Gap
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
+// Grid
+.grid {
+  display: grid;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+// Sizing
+.max-w-6xl {
+  max-width: 72rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Margin
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-12 {
+  margin-bottom: 3rem;
+}
+
+// Padding
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+// Spacing
+.space-y-4>*+* {
+  margin-top: 1rem;
+}
+
+// Typography utilities
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+// Visual
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.block {
+  display: block;
+}
+
+// ==============================================
+// Aero-Minimalism Component Classes
+// ==============================================
+
+.aero-card {
+  @include aero-card;
+}
+
+.aero-button {
+  @include aero-button;
+}
+
+.aero-input {
+  @include aero-input;
+}
+
+// Glass panel effect
+.glass-panel {
+  background: var(--glass-bg-solid);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+// Decorative blob
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: -1;
+
+  &.primary {
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    opacity: 0.3;
+  }
+
+  &.secondary {
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    opacity: 0.25;
+  }
+}
+
+// Smooth scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+
+  &:hover {
+    background: var(--scrollbar-thumb-hover);
+  }
+}
+
+// Selection color
+::selection {
+  background: var(--selection-bg);
+  color: var(--selection-text);
+}
+
+html {
+  color-scheme: light;
+
+  &.dark {
+    color-scheme: dark;
+  }
+}

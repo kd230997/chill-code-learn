@@ -1,0 +1,53 @@
+@use "@/shared/styles/_variables.scss" as *;
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.label {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.01em;
+    margin-left: 0.25rem;
+}
+
+.input {
+    @include aero-input;
+
+    &.error {
+        border-color: var(--error-border);
+        background: var(--error-bg);
+
+        &:focus {
+            box-shadow: var(--shadow-sm), 0 0 0 4px rgba(248, 113, 113, 0.15);
+        }
+    }
+}
+
+.error-text {
+    color: var(--error-text);
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
+    margin-left: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    &::before {
+        content: '!';
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 14px;
+        height: 14px;
+        background: var(--error-bg);
+        border-radius: 50%;
+        font-size: 0.625rem;
+        font-weight: 700;
+    }
+}

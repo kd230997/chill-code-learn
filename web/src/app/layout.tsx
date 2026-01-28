@@ -1,0 +1,46 @@
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.scss";
+
+import { AuthProvider } from "./providers/auth.context";
+import { ThemeProvider } from "./providers/theme.context";
+import { ToastProvider } from "./providers/toast.context";
+import { NavbarContainer } from "@/app/components/NavbarContainer/NavbarContainer";
+
+const geistSans = Geist({
+	variable: "--font-geist-sans",
+	subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+	variable: "--font-geist-mono",
+	subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+	title: "Chill Code Learn",
+	description: "Chill Code Learn, platform for chilling",
+};
+
+export default function RootLayout({
+	children,
+}: Readonly<{
+	children: React.ReactNode;
+}>) {
+	return (
+		<html lang="en" suppressHydrationWarning>
+			<body className={`${geistSans.variable} ${geistMono.variable}`}>
+				<ThemeProvider>
+					<AuthProvider>
+						<ToastProvider>
+							<NavbarContainer />
+							<main>
+								{children}
+							</main>
+						</ToastProvider>
+					</AuthProvider>
+				</ThemeProvider>
+			</body>
+		</html>
+	);
+}

@@ -1,0 +1,80 @@
+@use "@/shared/styles/_variables.scss" as *;
+
+.card {
+    @include aero-card;
+
+    &.compact {
+        padding: 1.25rem;
+    }
+
+    &.interactive {
+        cursor: pointer;
+
+        &:active {
+            transform: translateY(-2px) scale(0.99);
+        }
+    }
+
+    &.hover:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg), var(--shadow-glow);
+    }
+
+    // Glassmorphism accent blob - decorative element
+    &::before {
+        content: '';
+        position: absolute;
+        top: -30%;
+        right: -20%;
+        width: 200px;
+        height: 200px;
+        background: linear-gradient(135deg,
+                var(--primary-light),
+                var(--secondary),
+                var(--accent));
+        opacity: 0.25;
+        border-radius: 50%;
+        filter: blur(40px);
+        z-index: -1;
+        pointer-events: none;
+    }
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+
+    // Subtle underline accent
+    &::after {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--primary), var(--primary-light));
+        border-radius: 2px;
+        margin-top: 0.5rem;
+    }
+}
+
+// Card variants
+.elevated {
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.flat {
+    box-shadow: none;
+    border: 1px solid var(--input-border);
+
+    &:hover {
+        box-shadow: var(--shadow-md);
+    }
+}
+
+.gradient {
+    background: linear-gradient(135deg,
+            var(--glass-bg-solid) 0%,
+            var(--card-bg) 100%);
+}

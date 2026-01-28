@@ -1,0 +1,19 @@
+# Ignore environment variables (SENSITIVE)
+.env
+
+# Ignore dependencies
+web/node_modules/
+web/.next/
+api/node_modules/
+bin/
+obj/
+
+#Build File
+api/dist
+web/dist
+.agent
+.vscode
+.swc
+.idea
+build.log
+build.txt

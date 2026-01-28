@@ -1,0 +1,52 @@
+@use "@/shared/styles/_variables.scss" as *;
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.375rem 0.875rem;
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    background: var(--card-bg);
+    color: var(--text-secondary);
+    box-shadow: var(--shadow-sm);
+    border: none;
+    transition: all $transition-smooth;
+
+    &.default {
+        background: var(--card-bg);
+        color: var(--text-secondary);
+    }
+
+    &.primary {
+        background: linear-gradient(135deg, var(--primary), var(--primary-light));
+        color: #FFFFFF;
+        opacity: 0.9;
+    }
+
+    &.accent {
+        background: linear-gradient(135deg, var(--secondary), var(--accent));
+        color: #FFFFFF;
+        opacity: 0.9;
+    }
+
+    &.outline {
+        background: transparent;
+        border: 1.5px solid var(--input-border);
+        box-shadow: none;
+        color: var(--text-secondary);
+
+        &:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--glass-bg);
+        }
+    }
+
+    &.success {
+        background: var(--success-bg);
+        color: var(--success-text);
+        border: 1px solid var(--success-border);
+    }
+}

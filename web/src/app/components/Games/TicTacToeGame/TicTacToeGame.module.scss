@@ -1,0 +1,379 @@
+@use "@/shared/styles/_variables.scss" as *;
+
+// ==============================================
+// Container
+// ==============================================
+.container {
+    @include aero-background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 2rem 2rem 2rem;
+    position: relative;
+    overflow: hidden;
+
+    // Decorative floating orbs
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(60px);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    &::before {
+        width: 350px;
+        height: 350px;
+        background: linear-gradient(135deg,
+                var(--accent),
+                var(--primary-light));
+        opacity: 0.3;
+        top: -80px;
+        right: -80px;
+    }
+
+    &::after {
+        width: 300px;
+        height: 300px;
+        background: linear-gradient(135deg,
+                var(--secondary),
+                var(--accent-warm));
+        opacity: 0.25;
+        bottom: -60px;
+        left: -60px;
+    }
+}
+
+// ==============================================
+// Game Card
+// ==============================================
+.game-card {
+    max-width: 480px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    background: var(--glass-bg-solid);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 2.5rem;
+    overflow: visible;
+    text-align: center;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 120%;
+        height: 120%;
+        background: linear-gradient(135deg,
+                var(--accent),
+                var(--primary-light),
+                var(--secondary));
+        opacity: 0.2;
+        border-radius: 50%;
+        filter: blur(50px);
+        z-index: -1;
+        pointer-events: none;
+    }
+}
+
+// ==============================================
+// Icon Badge
+// ==============================================
+.icon-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.icon-badge {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--primary-light) 100%);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+// ==============================================
+// Typography
+// ==============================================
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+// ==============================================
+// Score Board
+// ==============================================
+.score-board {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.score-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    min-width: 80px;
+    transition: transform $transition-smooth, box-shadow $transition-smooth;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+}
+
+.score-x {
+    border: 2px solid var(--primary);
+    opacity: 0.7;
+
+    .score-value {
+        color: var(--primary);
+    }
+}
+
+.score-o {
+    border: 2px solid var(--secondary);
+    opacity: 0.7;
+
+    .score-value {
+        color: var(--secondary);
+    }
+}
+
+.score-draw {
+    border: 2px solid var(--input-border);
+
+    .score-value {
+        color: var(--text-secondary);
+    }
+}
+
+.score-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.score-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 0.25rem;
+}
+
+// ==============================================
+// Status
+// ==============================================
+.status {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    padding: 0.75rem 1.5rem;
+    background: var(--glass-bg);
+    border-radius: var(--radius-pill);
+    margin-bottom: 1.5rem;
+    transition: all $transition-smooth;
+}
+
+.status-winner {
+    background: var(--success-bg);
+    color: var(--success-text);
+    animation: pulse 1s ease-in-out infinite;
+}
+
+.status-draw {
+    background: var(--glass-bg-solid);
+    color: var(--text-secondary);
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+// ==============================================
+// Game Board
+// ==============================================
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 300px;
+    margin: 0 auto 1.5rem;
+    padding: 12px;
+    background: linear-gradient(135deg, var(--glass-bg) 0%, var(--card-bg) 100%);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm) inset;
+}
+
+.square {
+    aspect-ratio: 1;
+    background: var(--card-bg);
+    border: 2px solid var(--input-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    font-weight: 700;
+    transition: all $transition-smooth;
+    box-shadow: var(--shadow-sm);
+
+    &:hover:not(:disabled) {
+        transform: scale(1.05);
+        box-shadow: var(--shadow-md);
+        border-color: var(--primary-light);
+    }
+
+    &:active:not(:disabled) {
+        transform: scale(0.98);
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
+
+.square-x {
+    border-color: var(--primary);
+    opacity: 0.7;
+    background: linear-gradient(135deg, var(--glass-bg) 0%, var(--card-bg) 100%);
+
+    .square-value {
+        color: var(--primary-dark);
+        text-shadow: var(--primary-glow);
+    }
+}
+
+.square-o {
+    border-color: var(--secondary);
+    opacity: 0.7;
+    background: linear-gradient(135deg, var(--glass-bg) 0%, var(--card-bg) 100%);
+
+    .square-value {
+        color: var(--secondary);
+    }
+}
+
+.square-winning {
+    animation: winning-glow 0.6s ease-in-out infinite alternate;
+    border-color: var(--accent) !important;
+    background: var(--success-bg) !important;
+}
+
+@keyframes winning-glow {
+    0% {
+        box-shadow: var(--shadow-md), var(--shadow-glow);
+        transform: scale(1);
+    }
+
+    100% {
+        box-shadow: var(--shadow-lg), var(--shadow-glow);
+        transform: scale(1.03);
+    }
+}
+
+.square-value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pop-in 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes pop-in {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+// ==============================================
+// Actions
+// ==============================================
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+// ==============================================
+// Responsive
+// ==============================================
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .game-card {
+        padding: 1.5rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .score-board {
+        gap: 0.5rem;
+    }
+
+    .score-item {
+        padding: 0.5rem 0.75rem;
+        min-width: 60px;
+    }
+
+    .score-value {
+        font-size: 1.25rem;
+    }
+
+    .board {
+        max-width: 260px;
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .square {
+        font-size: 2rem;
+    }
+}

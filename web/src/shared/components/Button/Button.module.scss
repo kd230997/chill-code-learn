@@ -1,0 +1,86 @@
+@use "@/shared/styles/_variables.scss" as *;
+
+.button {
+    @include aero-button;
+    width: auto;
+    gap: 0.5rem;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none !important;
+        box-shadow: var(--shadow-sm) !important;
+        background: var(--input-border);
+    }
+
+    // Primary - Sky Blue gradient (default)
+    &.primary {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+        color: #FFFFFF;
+
+        &:hover {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+        }
+    }
+
+    // Secondary - Soft white/glass with primary text
+    &.secondary {
+        background: var(--card-bg);
+        color: var(--primary);
+        border: 1.5px solid var(--input-border);
+        box-shadow: var(--shadow-sm);
+
+        &:hover {
+            background: var(--glass-bg-solid);
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow-md);
+        }
+    }
+
+    // Accent - Warm peach gradient
+    &.accent {
+        background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+        color: #FFFFFF;
+
+        &:hover {
+            box-shadow: var(--shadow-md), var(--primary-glow);
+        }
+    }
+
+    // Outline - Transparent with border
+    &.outline {
+        background: transparent;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+        box-shadow: none;
+
+        &:hover {
+            background: var(--glass-bg);
+            box-shadow: var(--primary-glow);
+        }
+    }
+
+    // Ghost - Minimal
+    &.ghost {
+        background: transparent;
+        color: var(--text-secondary);
+        box-shadow: none;
+        padding: 0.5rem 1rem;
+
+        &:hover {
+            background: var(--glass-bg);
+            color: var(--primary);
+        }
+    }
+
+    // Sizes
+    &.small {
+        padding: 0.5rem 1.25rem;
+        font-size: 0.875rem;
+        border-radius: var(--radius-md);
+    }
+
+    &.full-width {
+        width: 100%;
+    }
+}

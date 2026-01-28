@@ -1,0 +1,66 @@
+@use "@/shared/styles/_variables.scss" as *;
+
+.theme-toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70px;
+    height: 36px;
+    padding: 4px;
+    background: var(--toggle-bg);
+    border: 2px solid var(--toggle-border);
+    border-radius: $radius-pill;
+    cursor: pointer;
+    transition: all $transition-smooth;
+    overflow: hidden;
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: var(--shadow-md);
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    z-index: 1;
+    transition: all $transition-smooth;
+    opacity: 0.5;
+
+    &.active {
+        opacity: 1;
+    }
+}
+
+.icon-sun {
+    margin-left: 2px;
+}
+
+.icon-moon {
+    margin-right: 2px;
+}
+
+.slider {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 24px;
+    height: 24px;
+    background: var(--toggle-slider);
+    border-radius: 50%;
+    transition: all $transition-smooth;
+    box-shadow: var(--shadow-sm);
+
+    :global(.dark) & {
+        left: calc(100% - 28px);
+    }
+}
