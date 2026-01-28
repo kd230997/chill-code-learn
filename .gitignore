@@ -11,7 +11,6 @@ obj/
 #Build File
 api/dist
 web/dist
-.agent
 .vscode
 .swc
 .idea
