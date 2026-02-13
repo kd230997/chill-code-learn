@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  local-cdn:
+    image: nginx:stable-alpine
+    container_name: my-local-cdn
+    user: root
+    ports:
+      - "8080:80"
+    volumes:
+      # We still keep the config link to your E: drive so you can edit it
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      # This is the "Magic" part: a named internal Docker volume
+      - cdn-storage:/var/www/html/media
+    # This ensures the 'nginx' user owns the storage folder
+    command: /bin/sh -c "chown -R nginx:nginx /var/www/html/media && nginx -g 'daemon off;'"
+    restart: always
+
+volumes:
+  cdn-storage:

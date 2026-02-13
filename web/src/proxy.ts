@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 const PUBLIC_PATH = ["register", "login"];
+const INACCESSIBLE_AFTER_LOGIN = ["/login", "/"];
 
 export function proxy(request: NextRequest) {
 	const session = request.cookies.get("auth_token")?.value;
@@ -14,7 +15,7 @@ export function proxy(request: NextRequest) {
 		return NextResponse.redirect(new URL("/login", request.url));
 	}
 
-	if (session && ["/login", "/"].includes(pathname)) {
+	if (session && INACCESSIBLE_AFTER_LOGIN.includes(pathname)) {
 		return NextResponse.redirect(new URL("/home", request.url));
 	}
 
