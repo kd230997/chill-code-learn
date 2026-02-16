@@ -1,5 +1,5 @@
 # Ignore environment variables (SENSITIVE)
-.env
+# .env
 
 # Ignore dependencies
 web/node_modules/
@@ -16,3 +16,4 @@ web/dist
 .idea
 build.log
 build.txt
+api/src/shared/infrastructure/prisma/auto-generated/
