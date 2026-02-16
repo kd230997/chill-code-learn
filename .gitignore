@@ -1,5 +1,5 @@
 # Ignore environment variables (SENSITIVE)
-# .env
+.env
 
 # Ignore dependencies
 web/node_modules/
