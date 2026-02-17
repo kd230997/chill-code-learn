@@ -22,7 +22,7 @@ const quickActions: QuickAction[] = [
         description: "Challenge yourself with fun coding games and puzzles.",
     },
     {
-        href: "/learn",
+        href: "/playground",
         icon: "book",
         iconClass: "action-icon-learn",
         title: "Learn & Practice",

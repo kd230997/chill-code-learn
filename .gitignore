@@ -16,4 +16,4 @@ web/dist
 .idea
 build.log
 build.txt
-api/src/shared/infrastructure/prisma/auto-generated/
+api/src/shared/infrastructure/prisma/auto-generated/*

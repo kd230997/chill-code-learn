@@ -67,7 +67,7 @@ export function LoginForm() {
 						fullWidth
 						disabled={loading}
 					>
-						{loading ? "Signing in..." : "Begin Session"}
+						{loading ? "Signing in..." : "Login"}
 					</Button>
 				</form>
 				<p className={styles.footer}>
