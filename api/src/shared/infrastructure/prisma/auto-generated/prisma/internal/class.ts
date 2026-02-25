@@ -17,18 +17,26 @@ import type * as Prisma from "./prismaNamespace.js"
 
 const config: runtime.GetPrismaClientConfig = {
   "previewFeatures": [],
-  "clientVersion": "7.2.0",
-  "engineVersion": "0c8ef2ce45c83248ab3df073180d5eda9e8be7a3",
+  "clientVersion": "7.4.0",
+  "engineVersion": "ab56fe763f921d033a6c195e7ddeb3e255bdbb57",
   "activeProvider": "mysql",
   "inlineSchema": "generator client {\n  provider     = \"prisma-client\"\n  output       = \"../src/shared/infrastructure/prisma/auto-generated/prisma\"\n  moduleFormat = \"cjs\"\n}\n\ndatasource db {\n  provider = \"mysql\"\n}\n\nmodel User {\n  id        String   @id @default(uuid())\n  email     String   @unique\n  password  String\n  name      String?\n  isActive  Boolean\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n",
   "runtimeDataModel": {
     "models": {},
     "enums": {},
     "types": {}
+  },
+  "parameterizationSchema": {
+    "strings": [],
+    "graph": ""
   }
 }
 
 config.runtimeDataModel = JSON.parse("{\"models\":{\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"isActive\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.parameterizationSchema = {
+  strings: JSON.parse("[\"where\",\"User.findUnique\",\"User.findUniqueOrThrow\",\"orderBy\",\"cursor\",\"User.findFirst\",\"User.findFirstOrThrow\",\"User.findMany\",\"data\",\"User.createOne\",\"User.createMany\",\"User.updateOne\",\"User.updateMany\",\"create\",\"update\",\"User.upsertOne\",\"User.deleteOne\",\"User.deleteMany\",\"having\",\"_count\",\"_min\",\"_max\",\"User.groupBy\",\"User.aggregate\",\"AND\",\"OR\",\"NOT\",\"id\",\"email\",\"password\",\"name\",\"isActive\",\"createdAt\",\"updatedAt\",\"equals\",\"in\",\"notIn\",\"lt\",\"lte\",\"gt\",\"gte\",\"not\",\"contains\",\"startsWith\",\"endsWith\",\"search\",\"_relevance\",\"set\"]"),
+  graph: "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"
+}
 
 async function decodeBase64AsWasm(wasmBase64: string): Promise<WebAssembly.Module> {
   const { Buffer } = await import('node:buffer')
@@ -37,12 +45,14 @@ async function decodeBase64AsWasm(wasmBase64: string): Promise<WebAssembly.Modul
 }
 
 config.compilerWasm = {
-  getRuntime: async () => await import("@prisma/client/runtime/query_compiler_bg.mysql.js"),
+  getRuntime: async () => await import("@prisma/client/runtime/query_compiler_fast_bg.mysql.js"),
 
   getQueryCompilerWasmModule: async () => {
-    const { wasm } = await import("@prisma/client/runtime/query_compiler_bg.mysql.wasm-base64.js")
+    const { wasm } = await import("@prisma/client/runtime/query_compiler_fast_bg.mysql.wasm-base64.js")
     return await decodeBase64AsWasm(wasm)
-  }
+  },
+
+  importName: "./query_compiler_fast_bg.js"
 }
 
 
